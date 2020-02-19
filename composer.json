@@ -1,0 +1,16 @@
+{
+    "name": "user/kretova",
+    "autoload": {
+        "psr-4": {
+            "App\\" : "app/",
+            "Panel\\" : "app/panel/",
+            "Core\\" : "core/",
+            "Config\\" : "config/"
+
+        }
+    },
+    "require": {
+        "noahbuscher/macaw": "dev-master",
+        "twig/twig": "^3.0"
+    }
+}
