@@ -16,29 +16,44 @@ class PanelController
 {
     public $View;
     public $Contact;
-    public  function __construct()
+
+    public function __construct ()
     {
         $this->View = new PanelView();
         $this->Contact = new ContactModel('contacts');
     }
 
-    public function index()
-     {
-         $count =$this->Contact->count();
-         $this->View->showPanel($count);
-     }
-     public function showContactList()
-     {
-         $contacts = $this->Contact->getContactList();
-         $this->View->showContactList($contacts);
-     }
-     public function addContact()
-     {
-         $this->Contact->addContact();
-     }
-    public function showContactAdd()
+    public function index ()
+    {
+        $count = $this->Contact->count ();
+        $this->View->showPanel ($count);
+    }
+
+    public function showContactList ()
+    {
+        $contacts = $this->Contact->getContactList ();
+        $this->View->showContactList ($contacts);
+    }
+
+    public function addContact ()
+    {
+        $this->Contact->addContact ();
+    }
+
+    public function showContactAdd ()
     {
 
-        $this->View->showContactAdd();
+        $this->View->showContactAdd ();
+    }
+
+    public function showContactEdit ($id)
+    {
+        $contact = $this->Contact->getById ($id);
+        $this->View->showContactEdit ($contact);
+    }
+
+    public function editContact ()
+    {
+        $this->Contact->updateContact ();
     }
 }
