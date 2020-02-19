@@ -27,4 +27,14 @@ class ContactModel extends CoreModel
         return $this->contactList;
     }
 
+    public function addContact()
+    {
+        if (isset($_SESSION['user'])){
+            echo 'Пользователь авторизирован';
+
+        }else{
+            echo 'Пользователь НЕ авторизирован';
+
+        }
+    }
 }

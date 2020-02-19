@@ -32,4 +32,8 @@ class PanelController
          $contacts = $this->Contact->getContactList();
          $this->View->showContactList($contacts);
      }
+     public function addContact()
+     {
+         $this->Contact->addContact();
+     }
 }
