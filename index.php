@@ -15,5 +15,8 @@ Macaw::get('count', 'App\ContactController@showCountRecords');
 Macaw::get('panel', 'Panel\PanelController@index');
 Macaw::get('panel/contact-list', 'Panel\PanelController@showContactList');
 Macaw::get('panel/contact/add', 'Panel\PanelController@addContact');
+
 Macaw::get('panel/add/contact', 'Panel\PanelController@showContactAdd');
+Macaw::post('panel/add/contact', 'Panel\PanelController@addContact');
+
 Macaw::dispatch();

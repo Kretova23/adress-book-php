@@ -3363,19 +3363,19 @@ pre {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
   .form-control::-webkit-input-placeholder {
-    color: #c9c8c8;
+    color: #000;
     opacity: 1; }
   .form-control::-moz-placeholder {
-    color: #c9c8c8;
+    color: #000;
     opacity: 1; }
   .form-control:-ms-input-placeholder {
-    color: #c9c8c8;
+    color: #000;
     opacity: 1; }
   .form-control::-ms-input-placeholder {
-    color: #c9c8c8;
+    color: #000;
     opacity: 1; }
   .form-control::placeholder {
-    color: #c9c8c8;
+    color: #000;
     opacity: 1; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
@@ -12625,7 +12625,7 @@ dl {
 /* === Landing screens === */
 /* Auth */
 .auth .auth-form-light {
-  background: #ffffff; }
+  background: #d014ff;}
   .auth .auth-form-light select {
     color: #c9c8c8; }
   .auth .auth-form-light .input-group .form-control:focus, .auth .auth-form-light .input-group .form-control:active {
