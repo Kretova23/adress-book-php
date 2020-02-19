@@ -36,4 +36,9 @@ class PanelController
      {
          $this->Contact->addContact();
      }
+    public function showContactAdd()
+    {
+
+        $this->View->showContactAdd();
+    }
 }

@@ -24,4 +24,5 @@ class ContactView extends CoreView
     {
        echo $this->twig->render('count.twig',['count'=>$count]);
     }
+
 }

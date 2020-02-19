@@ -32,4 +32,5 @@ class ContactController
        $count = $this->Model->count();
        $this->View->showCountRecords($count);
     }
+
 }

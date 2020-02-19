@@ -23,4 +23,10 @@ class PanelView extends CoreView
         //ServiceController::dbg($contacts);
         echo $this->twig->render('/admin/pages/contactlist.twig',['contacts'=>$contacts]);
     }
+    public function showContactAdd()
+    {
+        //ServiceController::dbg($contacts);
+        echo $this->twig->render('/admin/pages/addcontact.twig');
+    }
+
 }
