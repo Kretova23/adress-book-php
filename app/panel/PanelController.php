@@ -56,9 +56,5 @@ class PanelController
     {
         $this->Contact->updateContact ();
     }
-    public function showContactEdit($id)
-    {
 
-        $this->View->showContactAdd($id);
-    }
 }
