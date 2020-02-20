@@ -34,4 +34,9 @@ class PanelView extends CoreView
         echo $this->twig->render('/admin/pages/addcontact.twig',['id'=>$id]);
     }
 
+    public function showContactEdit($contact)
+    {
+        echo $this->twig->render('/admin/pages/editcontact.twig',['contact' => $contact]);
+    }
+
 }
