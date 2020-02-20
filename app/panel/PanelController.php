@@ -41,4 +41,9 @@ class PanelController
 
         $this->View->showContactAdd();
     }
+    public function showContactEdit($id)
+    {
+
+        $this->View->showContactAdd($id);
+    }
 }
