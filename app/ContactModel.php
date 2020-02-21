@@ -18,7 +18,7 @@ class ContactModel extends CoreModel
     public $contactList = array();
     public function getContactList()
     {
-        $sql = "SELECT id, CONCAT_WS(\" \", SecondName, name, ThirdName) as fio FROM " . $this->table;
+        $sql = 'SELECT id, CONCAT_WS(" ", SecondName, name, ThirdName) as fio FROM ' . $this->table;
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
