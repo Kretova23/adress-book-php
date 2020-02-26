@@ -196,6 +196,7 @@ class ServiceController
             $password=$_POST['password'];
             if ($username=='user' && $password=='user'){
                 $_SESSION['userName']=$username;
+//                self::dbg($_SESSION);
                 self::showAlert('Welcom - '.$username);
                 self::goUri('/panel/contact-list');
             }else{
@@ -208,7 +209,7 @@ class ServiceController
     public static function logOut()
     {
         unset($_SESSION['userName']);
-        Serv::goUri('/admin/');
+        self::goUri('/panel');
 
     }
     public static function checkAuth(){
