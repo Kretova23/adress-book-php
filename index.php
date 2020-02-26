@@ -11,6 +11,9 @@ Macaw::get('/con/(:num)', 'App\ContactController@showContactFromId');
 Macaw::get('all', 'Core\CoreController@all');
 Macaw::get('count', 'App\ContactController@showCountRecords');
 
+Macaw::post('/panel/login', 'Panel\PanelController@login');
+Macaw::get('/panel/login', 'Panel\PanelController@loginForm');
+Macaw::get('/panel/logout', 'Panel\PanelController@logout');
 
 Macaw::get('panel', 'Panel\PanelController@index');
 Macaw::get('panel/contact-list', 'Panel\PanelController@showContactList');

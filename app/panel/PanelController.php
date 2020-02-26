@@ -10,6 +10,7 @@ namespace Panel;
 
 
 use App\ContactModel;
+use Core\ServiceController as S;
 
 
 class PanelController
@@ -19,8 +20,30 @@ class PanelController
 
     public function __construct ()
     {
+
         $this->View = new PanelView();
         $this->Contact = new ContactModel('contacts');
+        $this->checkAuth();
+
+    }
+    public  function checkAuth()
+    {
+//        S::dbg($_POST);
+//        exit();
+        if (S::checkAuth() == false) {
+            $this->View->showLoginForm();
+            exit();
+        }
+
+    }
+
+    public function login()
+    {
+        S::logIn();
+    }
+    public function logout()
+    {
+        S::logOut();
     }
 
     public function index ()

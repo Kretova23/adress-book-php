@@ -187,4 +187,35 @@ class ServiceController
 
         return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
     }
+
+
+
+    public static function logIn(){
+        if (isset($_POST['btnLogin'])){
+            $username=$_POST['username'];
+            $password=$_POST['password'];
+            if ($username=='user' && $password=='user'){
+                $_SESSION['userName']=$username;
+                self::showAlert('Welcom - '.$username);
+                self::goUri('/panel/contact-list');
+            }else{
+                self::showAlert( 'Login or Password incorrect!!!');
+                self::goUri('/panel/contact-list');
+            }
+
+        } else { self::showAlert( 'aosiupgfoaiy');}
+    }
+    public static function logOut()
+    {
+        unset($_SESSION['userName']);
+        Serv::goUri('/admin/');
+
+    }
+    public static function checkAuth(){
+        if (isset($_SESSION['userName'])&& !empty( $_SESSION['userName'])){
+            return $_SESSION['userName'];
+        }else{
+            return false;
+        }
+    }
 }

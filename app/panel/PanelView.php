@@ -39,4 +39,9 @@ class PanelView extends CoreView
         echo $this->twig->render('/admin/pages/editcontact.twig',['contact' => $contact]);
     }
 
+    public function showLoginForm()
+    {
+        echo $this->twig->render('/admin/pages/login.html');
+    }
+
 }
