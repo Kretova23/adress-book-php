@@ -21,5 +21,10 @@ Macaw::post('panel/contact/add', 'Panel\PanelController@addContact');
 
 Macaw::get('panel/contact/edit/(:num)', 'Panel\PanelController@showContactEdit');
 Macaw::post('panel/contact/edit', 'Panel\PanelController@editContact');
+Macaw::error(function() {
+    //echo '404 :: Not Found';
+    include 'templates/admin/pages/samples/error-404.html';
+});
+
 
 Macaw::dispatch();
