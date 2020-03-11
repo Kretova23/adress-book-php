@@ -25,4 +25,5 @@ Macaw::post('panel/contact/add', 'Panel\PanelController@addContact');
 Macaw::get('panel/contact/edit/(:num)', 'Panel\PanelController@showContactEdit');
 Macaw::post('panel/contact/edit', 'Panel\PanelController@editContact');
 
+Macaw::get('user/contact-list', 'User/UserController@showContactList');
 Macaw::dispatch();

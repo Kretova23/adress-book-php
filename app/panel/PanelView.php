@@ -18,11 +18,7 @@ class PanelView extends CoreView
         echo $this->twig->render('/admin/pages/info.twig',['count'=>$count]);
 
     }
-    public function showContactList($contacts)
-    {
-        //ServiceController::dbg($contacts);
-        echo $this->twig->render('/admin/pages/contactlist.twig',['contacts'=>$contacts]);
-    }
+
     public function showContactAdd()
     {
         //ServiceController::dbg($contacts);
@@ -42,6 +38,10 @@ class PanelView extends CoreView
     public function showLoginForm()
     {
         echo $this->twig->render('/admin/pages/login.html');
+    }
+    public function showContactList($contacts)
+    {
+        echo $this->twig->render('/admin/pages/contactlist.twig',['contacts'=>$contacts]);
     }
 
 }
