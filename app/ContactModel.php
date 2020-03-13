@@ -19,7 +19,7 @@ class ContactModel extends CoreModel
 
     public function getContactList()
     {
-        $sql = 'SELECT id, CONCAT_WS(" ", SecondName, Name, ThirdName) as fio FROM ' . $this->table;
+        $sql = 'SELECT id, CONCAT_WS(" ", SecondName, Name, ThirdName) as fio FROM ' . $this->table .' WHERE Deleted_at IS NULL ';
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
@@ -71,19 +71,14 @@ class ContactModel extends CoreModel
             $ThirdName = $_POST['ThirdName'];
             $Number = $_POST['Number'];
             $Category = $_POST['Category'];
-            $update =time();
-
-            $sql = "UPDATE ". $this->table ." SET Name= :Name, SecondName= :SecondName, ThirdName= :ThirdName, Number= :Number, Category= :Category,  Updated_at= :update WHERE id= :id";
+            $sql = "UPDATE ". $this->table ." SET Name= :Name, SecondName= :SecondName, ThirdName= :ThirdName, Number= :Number, Category= :Category,  Updated_at= now() WHERE id= :id";
             $stmt = $this->db->prepare($sql);
-            //S::dbg ($stmt);
             $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
             $stmt->bindValue(":Name", $Name, \PDO::PARAM_STR);
             $stmt->bindValue(":SecondName", $SecondName, \PDO::PARAM_STR);
             $stmt->bindValue(":ThirdName", $ThirdName, \PDO::PARAM_STR);
             $stmt->bindValue(":Number", $Number, \PDO::PARAM_INT);
             $stmt->bindValue(":Category", $Category, \PDO::PARAM_STR);
-            $stmt->bindValue(":update", $update, \PDO::PARAM_INT);
-            ServiceController::dbg ($update);
             $stmt->execute();
             ServiceController::showAlert ('OK');
             ServiceController::goUri ('/panel/contact-list');
@@ -92,5 +87,21 @@ class ContactModel extends CoreModel
             echo 'Пользователь НЕ авторизирован';
 
         }
+    }
+
+    public function deleteContact($id)
+    {
+
+            $sql = "UPDATE ". $this->table ." SET   Deleted_at= now() WHERE id= :id";
+            $stmt = $this->db->prepare($sql);
+            //S::dbg ($stmt);
+            $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+
+
+            $stmt->execute();
+            ServiceController::showAlert ('OK');
+            ServiceController::goUri ('/panel/contact-list');
+
+
     }
 }

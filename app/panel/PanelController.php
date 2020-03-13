@@ -78,4 +78,9 @@ class PanelController
         $this->Contact->updateContact ();
     }
 
+    public function  deleteContact($id)
+    {
+        $this->Contact->deleteContact($id);
+    }
+
 }
