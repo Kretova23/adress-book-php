@@ -29,6 +29,18 @@ class ContactModel extends CoreModel
         //ServiceController::dbg($this->contactList);exit();
         return $this->contactList;
     }
+    public function getArchive()
+    {
+        $sql = 'SELECT id, CONCAT_WS(" ", SecondName, Name, ThirdName) as fio FROM ' . $this->table .' WHERE Deleted_at IS NOT NULL ';
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        while($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $this->contactList[] = $row;
+        }
+        //ServiceController::dbg($this->contactList);exit();
+        return $this->contactList;
+    }
 
     public function addContact()
     {
@@ -101,6 +113,21 @@ class ContactModel extends CoreModel
             $stmt->execute();
             ServiceController::showAlert ('OK');
             ServiceController::goUri ('/panel/contact-list');
+
+
+    }
+    public function moveContact($id)
+    {
+
+        $sql = "UPDATE ". $this->table ." SET   Deleted_at=NULL WHERE id= :id";
+        $stmt = $this->db->prepare($sql);
+        //S::dbg ($stmt);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+
+
+        $stmt->execute();
+        ServiceController::showAlert ('OK');
+        ServiceController::goUri ('/panel/contact-list');
 
 
     }

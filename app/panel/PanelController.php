@@ -83,4 +83,14 @@ class PanelController
         $this->Contact->deleteContact($id);
     }
 
+    public function showArchive ()
+    {
+        $contacts = $this->Contact->getArchive ();
+        $this->View->showArchive ($contacts);
+    }
+    public function  moveArchive($id)
+    {
+        $this->Contact->moveContact($id);
+    }
+
 }

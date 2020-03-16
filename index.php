@@ -18,6 +18,9 @@ Macaw::get('/panel/logout', 'Panel\PanelController@logout');
 Macaw::get('panel', 'Panel\PanelController@index');
 Macaw::get('panel/contact-list', 'Panel\PanelController@showContactList');
 
+Macaw::get('panel/archive', 'Panel\PanelController@showArchive');
+Macaw::get('panel/contact/move/(:num)', 'Panel\PanelController@moveArchive');
+
 
 Macaw::get('panel/contact/add', 'Panel\PanelController@showContactAdd');
 Macaw::post('panel/contact/add', 'Panel\PanelController@addContact');

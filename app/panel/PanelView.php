@@ -43,5 +43,8 @@ class PanelView extends CoreView
     {
         echo $this->twig->render('/admin/pages/contactlist.twig',['contacts'=>$contacts]);
     }
-
+    public function showArchive($contacts)
+    {
+        echo $this->twig->render('/admin/pages/archive.twig',['contacts'=>$contacts]);
+    }
 }
