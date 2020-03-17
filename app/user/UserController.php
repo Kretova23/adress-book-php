@@ -9,13 +9,14 @@
 namespace User;
 
 use App\ContactModel;
+use App\ContactView;
 use Core\ServiceController as S;
 
 class UserController
 {
     public $Model;
     public $View;
-    public $Contact;
+//    public $Contact; ??????
 
     public function __construct()
     {
@@ -24,7 +25,7 @@ class UserController
     }
     public function showContactList ()
     {
-        $contacts = $this->Contact->getContactList ();
+        $contacts = $this->Model->getContactList ();
         $this->View->showContactList ($contacts);
     }
 

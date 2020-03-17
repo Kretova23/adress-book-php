@@ -3,6 +3,7 @@
     "autoload": {
         "psr-4": {
             "App\\" : "app/",
+            "User\\" : "app/user/",
             "Panel\\" : "app/panel/",
             "Core\\" : "core/",
             "Config\\" : "config/"

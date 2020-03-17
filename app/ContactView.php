@@ -10,6 +10,7 @@ namespace App;
 
 
 use Core\CoreView;
+use Core\ServiceController as S;
 
 class ContactView extends CoreView
 {
@@ -24,5 +25,12 @@ class ContactView extends CoreView
     {
        echo $this->twig->render('count.twig',['count'=>$count]);
     }
+    public function showContactList($contacts)
+    {
+        S::dbg($contacts);
+
+        echo $this->twig->render('/admin/pages/usePage.twig',['contacts'=>$contacts]);
+    }
+
 
 }

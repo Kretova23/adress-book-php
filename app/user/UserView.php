@@ -11,7 +11,7 @@ namespace User;
 
 class UserView extends CoreView
 {
-    public function showContactList()
+    public function showContactList()//$contacts
     {
         //ServiceController::dbg($contacts);
         echo $this->twig->render('/admin/pages/usePage.twig');

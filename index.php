@@ -8,6 +8,8 @@ require_once ('vendor/autoload.php');
 use \NoahBuscher\Macaw\Macaw;
 
 Macaw::get('/con/(:num)', 'App\ContactController@showContactFromId');
+Macaw::get('user', 'App\ContactController@showContactList');
+
 Macaw::get('all', 'Core\CoreController@all');
 Macaw::get('count', 'App\ContactController@showCountRecords');
 
@@ -31,5 +33,5 @@ Macaw::post('panel/contact/edit', 'Panel\PanelController@editContact');
 Macaw::get('panel/contact/delete/(:num)', 'Panel\PanelController@deleteContact');
 
 
-Macaw::get('user/contact-list', 'User/UserController@showContactList');
+
 Macaw::dispatch();

@@ -17,6 +17,7 @@ class ContactController
     public $Model;
     public $View;
 
+
     public function __construct()
     {
         $this->Model = new ContactModel ('contacts');
@@ -31,6 +32,11 @@ class ContactController
     {
        $count = $this->Model->count();
        $this->View->showCountRecords($count);
+    }
+    public function showContactList ()
+    {
+        $contacts = $this->Model->getContactList ();
+        $this->View->showContactList ($contacts);
     }
 
 }
